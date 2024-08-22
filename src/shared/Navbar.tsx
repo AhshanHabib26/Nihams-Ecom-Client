@@ -124,7 +124,10 @@ export const MainNavbar = () => {
             </SheetContent>
           </Sheet>
           <div className="flex items-center gap-2 md:ml-auto">
-            <UserRound className="text-muted-foreground hover:text-foreground cursor-pointer" />
+            <Link href="login">
+              {" "}
+              <UserRound className="text-muted-foreground hover:text-foreground cursor-pointer" />
+            </Link>
             <Heart className="text-muted-foreground hover:text-foreground cursor-pointer" />
             <ShoppingCart className="text-muted-foreground hover:text-foreground cursor-pointer" />
           </div>
