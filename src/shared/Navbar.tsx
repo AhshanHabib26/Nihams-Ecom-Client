@@ -137,7 +137,7 @@ const MainNavbar = () => {
             {menuItems.map((item) => (
               <div
                 key={item.title}
-                className="relative group"
+                className="relative group text-[16px]"
                 onMouseEnter={() =>
                   item.subcategories && handleCategoryClick(item.title)
                 }

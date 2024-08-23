@@ -11,63 +11,80 @@ import imgTen from "../assets/images/robot-vacuum-cleaner.png";
 
 const commonData = [
   {
-    title: "Wireless Bluetooth Headphones",
-    shortDescription:
-      "Experience high-quality sound without the wires. These over-ear headphones offer superior comfort and noise-canceling capabilities.",
-    image: imgOne,
-  },
-  {
-    title: "4K Ultra HD Smart TV",
-    shortDescription:
-      "Bring the cinema experience home with this 55-inch 4K Ultra HD Smart TV. Stream your favorite shows with built-in apps.",
-    image: imgTwo,
+    title: "Espresso Coffee Maker",
+    description:
+      "Brew barista-quality espresso at home with this easy-to-use espresso coffee maker. Enjoy rich and flavorful coffee every time.",
+    price: 89.99,
+    image: imgEight,
   },
   {
     title: "Stainless Steel Watch",
-    shortDescription:
+    description:
       "A timeless piece of craftsmanship. This stainless steel watch combines elegance with durability, perfect for any occasion.",
+    price: 99.99,
     image: imgThree,
   },
   {
     title: "Portable Air Purifier",
-    shortDescription:
+    description:
       "Keep your air clean wherever you go with this compact and efficient portable air purifier. Ideal for homes and offices.",
+    price: 149.99,
     image: imgFour,
   },
   {
-    title: "Gaming Laptop",
-    shortDescription:
+    title: "Powerful Gaming Laptop",
+    description:
       "Powerful performance meets portability. This gaming laptop features a high-speed processor and stunning graphics for the ultimate gaming experience.",
+    price: 999.99,
     image: imgFive,
   },
   {
+    title: "4K Ultra HD Smart TV",
+    description:
+      "Bring the cinema experience home with this 55-inch 4K Ultra HD Smart TV. Stream your favorite shows with built-in apps.",
+    price: 190.99,
+    image: imgTwo,
+  },
+  {
+    title: "Wireless Bluetooth Headphones",
+    description:
+      "Experience high-quality sound without the wires. These over-ear headphones offer superior comfort and noise-canceling capabilities.",
+    price: 190.49,
+    image: imgOne,
+  },
+  {
     title: "Smartphone with Triple Camera",
-    shortDescription:
+    description:
       "Capture every moment in stunning detail with this smartphone's advanced triple camera system. Fast, responsive, and stylish.",
+    price: 249.99,
     image: imgSix,
   },
   {
     title: "Electric Toothbrush",
-    shortDescription:
+    description:
       "Achieve a superior clean with this electric toothbrush. Multiple modes and smart timers ensure you get the best oral care.",
+    price: 190,
     image: imgSeven,
   },
   {
-    title: "Espresso Coffee Maker",
-    shortDescription:
-      "Brew barista-quality espresso at home with this easy-to-use espresso coffee maker. Enjoy rich and flavorful coffee every time.",
-    image: imgEight,
+    title: "4K Ultra HD Smart TV",
+    description:
+      "Bring the cinema experience home with this 55-inch 4K Ultra HD Smart TV. Stream your favorite shows with built-in apps.",
+    price: 190.99,
+    image: imgTwo,
   },
   {
     title: "Fitness Tracker",
-    shortDescription:
+    description:
       "Monitor your health and fitness with this sleek and lightweight fitness tracker. Track steps, heart rate, sleep, and more.",
+    price: 749.99,
     image: imgNine,
   },
   {
     title: "Robot Vacuum Cleaner",
-    shortDescription:
+    description:
       "Let this robot vacuum cleaner do the work for you. With powerful suction and smart navigation, it keeps your floors spotless.",
+    price: 1199.99,
     image: imgTen,
   },
 ];
