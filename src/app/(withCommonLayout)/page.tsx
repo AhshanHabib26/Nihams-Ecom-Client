@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { BannerSlide } from "@/components/client/BannerSlide";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
-      <Button>Click me</Button>
+      <BannerSlide />
     </div>
   );
 }
