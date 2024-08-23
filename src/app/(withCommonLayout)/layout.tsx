@@ -1,9 +1,9 @@
-import { MainNavbar } from "@/shared/Navbar";
+import MainNav from "@/shared/MainNav";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <MainNavbar />
+      <MainNav/>
       <div className="min-h-screen">{children}</div>
       {/* <Footer /> */}
     </>
