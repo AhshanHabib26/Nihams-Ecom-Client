@@ -1,0 +1,62 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.inputBox {
+  position: relative;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #363636;
+  user-select: none;
+}
+
+.inputBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  color: #363636;
+  cursor: pointer;
+}
+
+.mobileInputContainer {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.mobileInputContainer.visible {
+  height: 50px;
+  opacity: 1;
+}
+
+.mobileInputBox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #dcdcdc;
+  outline: none;
+  padding-left: 20px;
+  font-size: 16px;
+  color: #363636;
+  user-select: none;
+}
+
+.mobileInputBtn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+  color: #363636;
+  cursor: pointer;
+}

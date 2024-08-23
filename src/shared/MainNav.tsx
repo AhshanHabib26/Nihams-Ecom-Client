@@ -1,14 +1,16 @@
-import React from 'react'
-import TopNav from './TopNav'
-import { MainNavbar } from './Navbar'
+import React from "react";
+import TopNav from "./TopNav";
+import { MainNavbar } from "./Navbar";
+import MidNav from "./MidNav";
 
 const MainNav = () => {
   return (
     <div>
-        <TopNav/>
-        <MainNavbar/>
+      <TopNav />
+      <MidNav />
+      <MainNavbar />
     </div>
-  )
-}
+  );
+};
 
-export default MainNav
+export default MainNav;

@@ -1,31 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Activity,
-  ArrowUpRight,
-  CircleUser,
-  CreditCard,
-  DollarSign,
-  Heart,
-  Menu,
-  Package2,
-  Search,
-  ShoppingCart,
-  UserRound,
-  Users,
-} from "lucide-react";
-
+import { Menu, Package2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 export const MainNavbar = () => {
   return (
@@ -123,14 +99,6 @@ export const MainNavbar = () => {
               </nav>
             </SheetContent>
           </Sheet>
-          <div className="flex items-center gap-2 md:ml-auto">
-            <Link href="login">
-              {" "}
-              <UserRound className="text-muted-foreground hover:text-foreground cursor-pointer" />
-            </Link>
-            <Heart className="text-muted-foreground hover:text-foreground cursor-pointer" />
-            <ShoppingCart className="text-muted-foreground hover:text-foreground cursor-pointer" />
-          </div>
         </header>
       </div>
     </div>
