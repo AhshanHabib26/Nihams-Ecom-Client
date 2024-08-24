@@ -13,7 +13,7 @@ const BannerCard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5  max-w-5xl mx-auto my-5">
           {banner.slice(7, 10).map((item) => (
             <div key={item.id}>
-              <div className="flex items-center bg-gray-100 p-4 gap-6 rounded shadow-lg">
+              <div className="flex items-center bg-gray-100 p-4 gap-6 rounded shadow">
                 <Image
                   src={item.image}
                   width={120}
