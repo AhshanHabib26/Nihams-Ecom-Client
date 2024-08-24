@@ -2,6 +2,7 @@ import BannerCard from "@/components/client/BannerCard";
 import { BannerSlide } from "@/components/client/BannerSlide";
 import InfoCard from "@/components/client/InfoCard";
 import ProductContainer from "@/components/client/ProductContainer";
+import ProductTabContainer from "@/components/client/ProductTabContainer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <BannerCard />
       <InfoCard />
       <ProductContainer />
+      <ProductTabContainer />
     </div>
   );
 }

@@ -1,0 +1,31 @@
+.VProductCardContainer {
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.VProductCardContainer:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  transition: 0.5s ease-in-out;
+}
+
+.VProductCardImg {
+  overflow: hidden;
+}
+.VProductCardContainer:hover .VProductCardImg {
+  transform: scale(1.1956);
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+.VProductCardInfo {
+  position: absolute;
+  content: "";
+  left: -9999px;
+  top: 0;
+  transition: 0.8s ease-in-out;
+}
+.VProductCardContainer:hover  .VProductCardInfo{
+    left: 0;
+    transition: 0.8s ease-in-out;
+}
