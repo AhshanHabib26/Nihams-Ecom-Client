@@ -17,6 +17,7 @@ const commonData = [
       "Brew barista-quality espresso at home with this easy-to-use espresso coffee maker. Enjoy rich and flavorful coffee every time.",
     price: 89.99,
     image: imgEight,
+    category: "Kitchen Appliances",
   },
   {
     id: "2",
@@ -25,6 +26,7 @@ const commonData = [
       "A timeless piece of craftsmanship. This stainless steel watch combines elegance with durability, perfect for any occasion.",
     price: 99.99,
     image: imgThree,
+    category: "Watches",
   },
   {
     id: "3",
@@ -32,7 +34,9 @@ const commonData = [
     description:
       "Keep your air clean wherever you go with this compact and efficient portable air purifier. Ideal for homes and offices.",
     price: 149.99,
+    offerPrice: 129.99,
     image: imgFour,
+    category: "Home Appliances",
   },
   {
     id: "4",
@@ -41,6 +45,7 @@ const commonData = [
       "Powerful performance meets portability. This gaming laptop features a high-speed processor and stunning graphics for the ultimate gaming experience.",
     price: 999.99,
     image: imgFive,
+    category: "Electronics",
   },
   {
     id: "5",
@@ -48,7 +53,9 @@ const commonData = [
     description:
       "Bring the cinema experience home with this 55-inch 4K Ultra HD Smart TV. Stream your favorite shows with built-in apps.",
     price: 190.99,
+    offerPrice: 169.99,
     image: imgTwo,
+    category: "Electronics",
   },
   {
     id: "6",
@@ -57,6 +64,7 @@ const commonData = [
       "Experience high-quality sound without the wires. These over-ear headphones offer superior comfort and noise-canceling capabilities.",
     price: 190.49,
     image: imgOne,
+    category: "Audio",
   },
   {
     id: "7",
@@ -64,7 +72,9 @@ const commonData = [
     description:
       "Capture every moment in stunning detail with this smartphone's advanced triple camera system. Fast, responsive, and stylish.",
     price: 249.99,
+    offerPrice: 219.99,
     image: imgSix,
+    category: "Electronics",
   },
   {
     id: "8",
@@ -73,6 +83,7 @@ const commonData = [
       "Achieve a superior clean with this electric toothbrush. Multiple modes and smart timers ensure you get the best oral care.",
     price: 190,
     image: imgSeven,
+    category: "Personal Care",
   },
   {
     id: "9",
@@ -80,7 +91,9 @@ const commonData = [
     description:
       "Monitor your health and fitness with this sleek and lightweight fitness tracker. Track steps, heart rate, sleep, and more.",
     price: 749.99,
+    offerPrice: 699.99,
     image: imgNine,
+    category: "Fitness",
   },
   {
     id: "10",
@@ -89,8 +102,11 @@ const commonData = [
       "Let this robot vacuum cleaner do the work for you. With powerful suction and smart navigation, it keeps your floors spotless.",
     price: 1199.99,
     image: imgTen,
+    category: "Home Appliances", 
   },
 ];
+
+
 
 export const getCommonData = () => {
   return commonData;

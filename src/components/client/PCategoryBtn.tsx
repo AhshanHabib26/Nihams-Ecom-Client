@@ -15,8 +15,8 @@ const category = [
 
 const PCategoryBtn = () => {
   return (
-    <div className="max-w-5xl mx-auto border-b-[1px] border-gray-200">
-      <div className="flex overflow-x-auto space-x-5 py-2 px-4 scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-50">
+    <div className="max-w-6xl mx-auto border-b-[1px] border-gray-200">
+      <div className="flex overflow-x-auto space-x-5 py-2 px-4 scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-50 select-none">
         {category.map((item, index) => (
           <div
             key={item.id}
