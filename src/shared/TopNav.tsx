@@ -1,4 +1,5 @@
 import { Cctv, MapPin, PartyPopper, ShoppingBag } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const TopNav = () => {
@@ -19,9 +20,11 @@ const TopNav = () => {
               <Cctv size={18} />
               <p className=" text-sm">Track Your Order</p>
             </div>
-            <div className="flex items-center gap-1">
-              <ShoppingBag size={18} />
-              <p className=" text-sm">Shop</p>
+            <div>
+              <Link href="/shop" className="flex items-center gap-1">
+                <ShoppingBag size={18} />
+                <p className="text-sm">Shop</p>
+              </Link>
             </div>
           </div>
         </div>

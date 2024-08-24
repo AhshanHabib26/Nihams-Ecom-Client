@@ -145,10 +145,17 @@ const MainNavbar = () => {
                   item.subcategories && handleCategoryClick(null)
                 }
               >
-                <button className="flex items-center gap-1">
-                  {item.title}
-                  {item.subcategories && <ChevronDown className="h-4 w-4" />}
-                </button>
+                {item.subcategories ? (
+                  <button className="flex items-center gap-1">
+                    {item.title}
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                ) : (
+                  <Link href={item.href} className="flex items-center gap-1">
+                    {item.title}
+                  </Link>
+                )}
+
                 {/* Subcategories dropdown */}
                 {item.subcategories && (
                   <div
@@ -192,39 +199,48 @@ const MainNavbar = () => {
                     key={item.title}
                     className="relative group border-b-[1px] border-gray-100 py-2 px-3"
                   >
-                    <button
-                      onClick={() =>
-                        item.subcategories && handleCategoryClick(item.title)
-                      }
-                      className="flex w-full items-center justify-between hover:text-orange-600"
-                    >
-                      <span>{item.title}</span>
-                      {item.subcategories &&
-                        (openCategory === item.title ? (
+                    {item.subcategories ? (
+                      <button
+                        onClick={() =>
+                          item.subcategories && handleCategoryClick(item.title)
+                        }
+                        className="flex w-full items-center justify-between hover:text-orange-600"
+                      >
+                        <span>{item.title}</span>
+                        {openCategory === item.title ? (
                           <ChevronUp className="h-5 w-5" />
                         ) : (
                           <ChevronDown className="h-5 w-5" />
-                        ))}
-                    </button>
+                        )}
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="flex w-full items-center justify-between hover:text-orange-600"
+                      >
+                        <span>{item.title}</span>
+                      </Link>
+                    )}
 
-                    <div
-                      className={` mt-2 transition-all duration-300 ease-in-out overflow-auto ${
-                        openCategory === item.title
-                          ? "max-h-screen opacity-100"
-                          : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      {item.subcategories &&
-                        item.subcategories.map((subItem) => (
+                    {item.subcategories && (
+                      <div
+                        className={`mt-2 transition-all duration-300 ease-in-out overflow-auto ${
+                          openCategory === item.title
+                            ? "max-h-screen opacity-100"
+                            : "max-h-0 opacity-0"
+                        }`}
+                      >
+                        {item.subcategories.map((subItem) => (
                           <Link
                             key={subItem.title}
                             href={subItem.href}
-                            className="block py-2 border-t-[1px] hover:text-orange-600 "
+                            className="block py-2 border-t-[1px] hover:text-orange-600"
                           >
                             {subItem.title}
                           </Link>
                         ))}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </nav>
