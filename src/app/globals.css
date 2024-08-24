@@ -72,7 +72,8 @@
   overflow: hidden;
 }
 .dropdown-menu {
-  max-width: 50vw; /* 50% of viewport width */
-  max-height: 50vh; /* 50% of viewport height */
-  overflow: hidden; /* Hide scrollbars */
+  max-width: 50vw; 
+  max-height: 50vh; 
+  overflow: hidden;
 }
+
