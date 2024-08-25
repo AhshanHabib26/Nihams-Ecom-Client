@@ -1,3 +1,4 @@
+import BannerAds from "@/components/client/ads/BannerAds";
 import BannerCard from "@/components/client/BannerCard";
 import { BannerSlide } from "@/components/client/BannerSlide";
 import BestSellersSection from "@/components/client/BestSellersSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <ProductContainer />
       <ProductTabContainer />
       <BestSellersSection />
+      <BannerAds />
     </div>
   );
 }
