@@ -28,8 +28,8 @@ export const BannerSlide = () => {
           modules={[Pagination, Autoplay]}
         >
           <div>
-            {banner.slice(0, 3).map((item, index) => (
-              <div key={index}>
+            {banner.slice(0, 3).map((item) => (
+              <div key={item.id}>
                 {" "}
                 <SwiperSlide>
                   <div className=" flex items-center justify-evenly flex-col lg:flex-row">

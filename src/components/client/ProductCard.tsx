@@ -8,7 +8,7 @@ const ProductCard: React.FC<TProductProps> = ({ product }) => {
   return (
     <div>
       <div
-        className={`${Styles.productContainer} border-[1px] border-gray-200 rounded`}
+        className={`${Styles.productContainer} border-[1px] border-gray-200 rounded h-full`}
       >
         <div className="flex p-6 items-center gap-2 h-full ">
           <Image
@@ -18,7 +18,7 @@ const ProductCard: React.FC<TProductProps> = ({ product }) => {
             className="w-[120px] h-[120px]"
             alt={product.title}
           />
-          <div className="w-full">
+          <div className="w-full h-full">
             <span className="text-orange-500">{product.category}</span>
             <h1 className="text-md font-medium ">{product.title}</h1>
             <div className="flex items-center justify-between my-2">
