@@ -13,16 +13,53 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
+import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { decodedToken } from "@/utils/jwt";
+import { TUser } from "@/types/user.type";
+import { useAppDispatch } from "@/redux/hooks";
+import { setCredentials } from "@/redux/features/auth/authSlice";
 
 const LoginPage = () => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login] = useLoginMutation();
 
-  const handleLogin = (e: FormEvent) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    const data = { email, password };
-    console.log(data);
+
+    const toastId = toast.loading("Logging in");
+
+    try {
+      const userInfo = {
+        email,
+        password,
+      };
+
+      const res = await login(userInfo).unwrap();
+      const user = decodedToken(res.data.accessToken) as TUser;
+      dispatch(
+        setCredentials({
+          user: user,
+          accessToken: res?.data?.accessToken,
+          refreshToken: res?.data?.refreshToken,
+        })
+      );
+      toast.success("Logged in successfully!", { id: toastId, duration: 2000 });
+
+      if (res.data.accessToken) {
+        if (user.role === "admin") {
+          router.push(`/dashboard`);
+        } else if (user.role === "user" || user.role === "guest") {
+          router.push(`/`);
+        }
+      }
+    } catch (err) {
+      toast.error("Something went wrong", { id: toastId, duration: 2000 });
+    }
   };
 
   return (

@@ -7,14 +7,14 @@ import {
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
-import { logout, setUser } from "../features/auth/authSlice";
+import { logout, setCredentials } from "../features/auth/authSlice";
 import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as RootState).auth.token;
+    const token = (getState() as RootState).auth.accessToken;
 
     if (token) {
       headers.set("authorization", `${token}`);
@@ -56,9 +56,10 @@ const baseQueryWithRefreshToken: BaseQueryFn<
       const user = (api.getState() as RootState).auth.user;
 
       api.dispatch(
-        setUser({
+        setCredentials({
           user,
-          token: data.data.accessToken,
+          accessToken: data.data.accessToken,
+          refreshToken: data.data.refreshToken,
         })
       );
 

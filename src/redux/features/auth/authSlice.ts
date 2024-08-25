@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
+import Cookies from "js-cookie";
 
 export type TUser = {
   userId: string;
@@ -10,33 +11,49 @@ export type TUser = {
 
 type TAuthState = {
   user: null | TUser;
-  token: null | string;
+  accessToken: string | null;
+  refreshToken: string | null;
 };
 
 const initialState: TAuthState = {
+  accessToken: null,
+  refreshToken: null,
   user: null,
-  token: null,
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
-    setUser: (state, action) => {
-      const { user, token } = action.payload;
+    setCredentials: (
+      state,
+      action: PayloadAction<{
+        accessToken: string;
+        refreshToken: string;
+        user: any;
+      }>
+    ) => {
+      const { accessToken, refreshToken, user } = action.payload;
+      state.accessToken = accessToken;
+      state.refreshToken = refreshToken;
       state.user = user;
-      state.token = token;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("user", JSON.stringify(user));
     },
     logout: (state) => {
+      state.accessToken = null;
+      state.refreshToken = null;
       state.user = null;
-      state.token = null;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+      Cookies.remove("refreshToken");
     },
   },
 });
 
-export const { setUser, logout } = authSlice.actions;
+export const { setCredentials, logout } = authSlice.actions;
 
 export default authSlice.reducer;
 
-export const useCurrentToken = (state: RootState) => state.auth.token;
+export const useCurrentToken = (state: RootState) => state.auth.accessToken;
 export const selectCurrentUser = (state: RootState) => state.auth.user;

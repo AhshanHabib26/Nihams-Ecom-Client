@@ -34,8 +34,6 @@ const RegisterPage = () => {
       };
 
       const res = await register(userInfo).unwrap();
-      console.log(res);
-
       if (res.success) {
         toast.success(res.message);
         router.push(`/login`);
