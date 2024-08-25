@@ -5,6 +5,7 @@ import BestSellersSection from "@/components/client/BestSellersSection";
 import InfoCard from "@/components/client/InfoCard";
 import ProductContainer from "@/components/client/ProductContainer";
 import ProductTabContainer from "@/components/client/ProductTabContainer";
+import RecentProductsSection from "@/components/client/RecentProductsSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ProductTabContainer />
       <BestSellersSection />
       <BannerAds />
+      <RecentProductsSection />
     </div>
   );
 }
