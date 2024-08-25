@@ -1,18 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
-import { Heart, Search, ShoppingCart, UserRound } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Heart, LogOut, Search, ShoppingCart, UserRound } from "lucide-react";
 import Link from "next/link";
 import Styles from "../styles/MidNav.module.css";
 import Logo from "../assets/icons/nihams-logo.png";
 import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  logout,
+  setCredentials,
+  useCurrentToken,
+} from "@/redux/features/auth/authSlice";
+import Spinner from "@/loader/Spinner";
 
 const MidNav = () => {
   const [visible, setIsVisible] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    setIsLoggedIn(!!token);
+    setLoading(false);
+  }, []);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    setIsLoggedIn(false);
+  };
 
   const toggleVisibility = () => {
     setIsVisible((prevVisible) => !prevVisible);
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div>
@@ -36,9 +61,17 @@ const MidNav = () => {
           />
           <Heart size={25} />
           <ShoppingCart size={25} />
-          <Link href="login">
-            <UserRound size={25} />
-          </Link>
+          {isLoggedIn ? (
+            <LogOut
+              onClick={handleLogout}
+              size={25}
+              className="text-orange-600 cursor-pointer"
+            />
+          ) : (
+            <Link href="login">
+              <UserRound size={25} />
+            </Link>
+          )}
         </div>
       </div>
       <div>
