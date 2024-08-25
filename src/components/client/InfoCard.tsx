@@ -39,7 +39,7 @@ const InfoCard = () => {
   return (
     <div className="mt-12">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 border-[1px] border-gray-200 shadow rounded">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5  shadow rounded bg-green-50">
           {infoItem.map((item, index) => (
             <div
               key={item.id}

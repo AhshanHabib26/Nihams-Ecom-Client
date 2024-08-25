@@ -16,16 +16,16 @@ const VRecentProductCard: React.FC<TProductProps> = ({ product }) => {
         <div className="flex items-center justify-center my-3">
           <Image
             src={product.image}
-            width={150}
-            height={150}
-            className={`w-[100px] h-[90px] opacity-70 ${Styles.VRecentProductCardImg}`}
+            width={90}
+            height={90}
+            className={`w-[90px] h-[90px] opacity-70 ${Styles.VRecentProductCardImg}`}
             alt={product.title}
           />
         </div>
-        <div className="flex items-center justify-between mt-2">
+        <div className="flex items-center justify-between mt-3">
           <div>
             {product.offerPrice ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center flex-col md:flex-row lg:flex-row md:gap-2 lg:gap-2 ">
                 <p className="  line-through text-red-500">${product.price}</p>
                 <p className=" text-lg font-medium">${product.offerPrice}</p>
               </div>
