@@ -6,6 +6,7 @@ import InfoCard from "@/components/client/InfoCard";
 import ProductContainer from "@/components/client/ProductContainer";
 import ProductTabContainer from "@/components/client/ProductTabContainer";
 import RecentProductsSection from "@/components/client/RecentProductsSection";
+import Subscribe from "@/components/client/Subscribe";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <BestSellersSection />
       <BannerAds />
       <RecentProductsSection />
+      <Subscribe />
     </div>
   );
 }
