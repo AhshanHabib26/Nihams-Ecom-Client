@@ -6,24 +6,35 @@ import Link from "next/link";
 import Styles from "../styles/MidNav.module.css";
 import Logo from "../assets/icons/nihams-logo.png";
 import Image from "next/image";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import {
-  logout,
-  setCredentials,
-  useCurrentToken,
-} from "@/redux/features/auth/authSlice";
-import Spinner from "@/loader/Spinner";
+import { useAppDispatch } from "@/redux/hooks";
+import { logout } from "@/redux/features/auth/authSlice";
 
 const MidNav = () => {
   const [visible, setIsVisible] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(true);
   const dispatch = useAppDispatch();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    setIsLoggedIn(!!token);
-    setLoading(false);
+
+    if (token) {
+      setIsLoggedIn(true);
+    }
+
+    const handleStorageChange = () => {
+      const updatedToken = localStorage.getItem("accessToken");
+      if (updatedToken) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   const handleLogout = () => {
@@ -35,13 +46,9 @@ const MidNav = () => {
     setIsVisible((prevVisible) => !prevVisible);
   };
 
-  if (loading) {
-    return <Spinner />;
-  }
-
   return (
     <div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 px-6 py-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 px-6 py-3">
         <Link href="/">
           <Image src={Logo} width={180} height={180} alt="Nihams Mart Logo" />
         </Link>
