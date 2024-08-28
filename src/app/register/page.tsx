@@ -14,33 +14,23 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { useRegisterMutation } from "@/redux/features/auth/authApi";
 const RegisterPage = () => {
-  const router = useRouter();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [register] = useRegisterMutation();
+ 
 
   const handleRegister = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-      const userInfo = {
-        firstname,
-        lastname,
-        email,
-        password,
-      };
 
-      const res = await register(userInfo).unwrap();
-      if (res.success) {
-        toast.success(res.message);
-        router.push(`/login`);
-      }
-    } catch (err) {
-      toast.error("Something went wrong");
-    }
+    const userInfo = {
+      firstname,
+      lastname,
+      email,
+      password,
+    };
+    
   };
 
   return (

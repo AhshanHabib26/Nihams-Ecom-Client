@@ -1,5 +1,6 @@
 "use client";
 
+import DashboardNavbar from "@/shared/dashboard/DashboardNavbar";
 import React from "react";
 
 export default function DashboardLayout({
@@ -7,5 +8,9 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <DashboardNavbar>{children}</DashboardNavbar>
+    </div>
+  );
 }

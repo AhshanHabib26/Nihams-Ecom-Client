@@ -6,41 +6,9 @@ import Link from "next/link";
 import Styles from "../styles/MidNav.module.css";
 import Logo from "../assets/icons/nihams-logo.png";
 import Image from "next/image";
-import { useAppDispatch } from "@/redux/hooks";
-import { logout } from "@/redux/features/auth/authSlice";
 
 const MidNav = () => {
   const [visible, setIsVisible] = useState(false);
-  const dispatch = useAppDispatch();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-
-    if (token) {
-      setIsLoggedIn(true);
-    }
-
-    const handleStorageChange = () => {
-      const updatedToken = localStorage.getItem("accessToken");
-      if (updatedToken) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
-  const handleLogout = () => {
-    dispatch(logout());
-    setIsLoggedIn(false);
-  };
 
   const toggleVisibility = () => {
     setIsVisible((prevVisible) => !prevVisible);
@@ -68,17 +36,10 @@ const MidNav = () => {
           />
           <Heart size={25} />
           <ShoppingCart size={25} />
-          {isLoggedIn ? (
-            <LogOut
-              onClick={handleLogout}
-              size={25}
-              className="text-orange-600 cursor-pointer"
-            />
-          ) : (
-            <Link href="login">
-              <UserRound size={25} />
-            </Link>
-          )}
+
+          <Link href="login">
+            <UserRound size={25} />
+          </Link>
         </div>
       </div>
       <div>
