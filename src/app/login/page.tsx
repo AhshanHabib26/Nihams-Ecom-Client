@@ -15,26 +15,49 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-
-
-
+import { userLogin } from "@/services/actions/userLogin";
+import { storeUserInfo } from "@/services/auth.services";
+import { CustomJwtPayload, decodedToken } from "@/utils/jwt";
 
 const LoginPage = () => {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false); 
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
 
-    const toastId = toast.loading("Logging in");
+    if (!email || !password) {
+      return toast.info("All fields are required");
+    }
 
-    const userInfo = {
-      email,
-      password,
-    };
+    setLoading(true); 
 
+    try {
+      const res = await userLogin({ email, password });
+
+      if (res?.data?.accessToken) {
+        const token = decodedToken(res.data.accessToken) as CustomJwtPayload;
+
+        if (token && typeof token === "object" && "role" in token) {
+          if (token.role === "admin") {
+            router.push("/dashboard/admin");
+          } else {
+            router.push("/");
+          }
+        }
+
+        toast.success(res.message);
+        storeUserInfo({ accessToken: res.data.accessToken });
+      } else {
+        toast.error("Login failed. Please try again.");
+      }
+    } catch (error: any) {
+      toast.error(error.message || "An error occurred during login.");
+    } finally {
+      setLoading(false); 
+    }
   };
 
   return (
@@ -57,7 +80,6 @@ const LoginPage = () => {
                   placeholder="example@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                 />
               </div>
               <div className="grid gap-2">
@@ -73,14 +95,13 @@ const LoginPage = () => {
                 <Input
                   id="password"
                   type="password"
-                  required
                   placeholder="*******"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <Button type="submit" className="w-full">
-                Login
+              <Button type="submit" className="w-full" disabled={loading}>
+                {loading ? "loading..." : "Login"}
               </Button>
             </div>
           </form>

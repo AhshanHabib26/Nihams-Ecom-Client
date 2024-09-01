@@ -1,4 +1,4 @@
-// "use server";
+"use server";
 
 import setAccessToken from "./setAccessToken";
 
@@ -17,6 +17,7 @@ export const userLogin = async (data: any) => {
     }
   );
   const userInfo = await res.json();
+
 
   if (userInfo.data.accessToken) {
     setAccessToken(userInfo.data.accessToken, {
