@@ -6,7 +6,9 @@ import { authKey } from "@/constants/authkey";
 
 interface UserInfo extends JwtPayload {
   userId: string;
-  role?: string;
+  email?: string;
+  role: string;
+  userName?: string;
 }
 
 const useUserInfo = (): UserInfo | null => {
