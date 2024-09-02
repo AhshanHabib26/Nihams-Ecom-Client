@@ -6,8 +6,24 @@ import Link from "next/link";
 import Styles from "../styles/MidNav.module.css";
 import Logo from "../assets/icons/nihams-logo.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { logoutUser } from "@/services/actions/logoutUser";
+import useUserInfo from "@/hooks/useUserInfo";
 
 const MidNav = () => {
+  const [trackUserInfo, setTrackUserInfo] = useState<any | null>(null);
+  const userInfo = useUserInfo();
+  const router = useRouter();
+
+  useEffect(() => {
+    setTrackUserInfo(userInfo);
+  }, [userInfo]);
+
+  const handleLogOut = () => {
+    logoutUser(router);
+    setTrackUserInfo(null);
+  };
+
   const [visible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -37,9 +53,17 @@ const MidNav = () => {
           <Heart size={25} />
           <ShoppingCart size={25} />
 
-          <Link href="login">
-            <UserRound size={25} />
-          </Link>
+          {trackUserInfo?.userId ? (
+            <LogOut
+              className=" cursor-pointer"
+              onClick={handleLogOut}
+              size={25}
+            />
+          ) : (
+            <Link href="/login">
+              <UserRound size={25} />
+            </Link>
+          )}
         </div>
       </div>
       <div>

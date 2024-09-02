@@ -4,10 +4,14 @@ import {
   Bell,
   CircleUser,
   Home,
+  Layers3,
+  LibraryBig,
   LineChart,
   Menu,
   Package,
   Package2,
+  Palette,
+  Percent,
   Search,
   ShoppingCart,
   Users,
@@ -39,19 +43,21 @@ const DashboardNavbar = ({ children }: { children: React.ReactNode }) => {
         <div className="hidden border-r bg-muted/40 md:block">
           <div className="flex h-full flex-col gap-2">
             <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-              <Link href="/" className="flex items-center gap-2 font-semibold">
-                <Package2 className="h-6 w-6" />
-                <span className="">Acme Inc</span>
+              <Link
+                href="/dashboard/admin"
+                className="flex items-center gap-2 font-semibold"
+              >
+                <ShoppingCart className="h-6 w-6" />
+                <span className="">Nihams Mart</span>
               </Link>
               <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
                 <Bell className="h-4 w-4" />
-                <span className="sr-only">Toggle notifications</span>
               </Button>
             </div>
             <div className="flex-1">
               <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
                 <Link
-                  href="#"
+                  href="/dashboard/admin"
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                 >
                   <Home className="h-4 w-4" />
@@ -72,21 +78,35 @@ const DashboardNavbar = ({ children }: { children: React.ReactNode }) => {
                   className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
                 >
                   <Package className="h-4 w-4" />
-                  Products{" "}
+                  Prodcuts{" "}
                 </Link>
                 <Link
                   href="#"
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                 >
-                  <Users className="h-4 w-4" />
-                  Customers
+                  <Percent className="h-4 w-4" />
+                  Coupon
                 </Link>
                 <Link
                   href="#"
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                 >
-                  <LineChart className="h-4 w-4" />
-                  Analytics
+                  <Layers3 className="h-4 w-4" />
+                  Category
+                </Link>
+                <Link
+                  href="#"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                >
+                  <Palette className="h-4 w-4" />
+                  Colors
+                </Link>
+                <Link
+                  href="#"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                >
+                  <LibraryBig className="h-4 w-4" />
+                  Brands
                 </Link>
               </nav>
             </div>
