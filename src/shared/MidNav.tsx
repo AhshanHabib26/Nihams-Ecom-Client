@@ -9,9 +9,12 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { logoutUser } from "@/services/actions/logoutUser";
 import useUserInfo from "@/hooks/useUserInfo";
+import { SheetTrigger } from "@/components/ui/sheet";
+import MenuCartBtn from "@/components/client/cart/MenuCartBtn";
 
 const MidNav = () => {
   const [trackUserInfo, setTrackUserInfo] = useState<any | null>(null);
+  const [open, setOpen] = useState(false);
   const userInfo = useUserInfo();
   const router = useRouter();
 
@@ -28,6 +31,14 @@ const MidNav = () => {
 
   const toggleVisibility = () => {
     setIsVisible((prevVisible) => !prevVisible);
+  };
+
+  const handleOpenCart = () => {
+    setOpen(true);
+  };
+
+  const handleCloseCart = () => {
+    setOpen(false);
   };
 
   return (
@@ -51,7 +62,10 @@ const MidNav = () => {
             onClick={toggleVisibility}
           />
           <Heart size={25} />
-          <ShoppingCart size={25} />
+
+          <button onClick={handleOpenCart}>
+            <ShoppingCart size={25} />
+          </button>
 
           {trackUserInfo?.userId ? (
             <LogOut
@@ -83,6 +97,7 @@ const MidNav = () => {
           />
         </div>
       </div>
+      <MenuCartBtn open={open} onClose={handleCloseCart} />
     </div>
   );
 };
