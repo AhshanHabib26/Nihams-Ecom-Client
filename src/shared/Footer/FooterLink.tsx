@@ -51,7 +51,7 @@ const cutomerCare = {
 
 const FooterLink = () => {
   return (
-    <div className="my-10">
+    <div className="my-8">
       <Container>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           <div>
@@ -71,7 +71,7 @@ const FooterLink = () => {
           </div>
 
           <div>
-            <h1 className="text-lg font-semibold">{productLink.title}</h1>
+            <h1 className="text-lg mb-2 font-semibold">{productLink.title}</h1>
             <div>
               {productLink.categories.map((i, index) => (
                 <div className="mb-1" key={index}>
@@ -86,7 +86,7 @@ const FooterLink = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-lg font-semibold">{usefulLink.title}</h1>
+            <h1 className="text-lg mb-2 font-semibold">{usefulLink.title}</h1>
             <div>
               {usefulLink.categories.map((i, index) => (
                 <div className="mb-1" key={index}>
@@ -101,7 +101,7 @@ const FooterLink = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-lg font-semibold">{cutomerCare.title}</h1>
+            <h1 className="text-lg mb-2 font-semibold">{cutomerCare.title}</h1>
             <div>
               {cutomerCare.categories.map((i, index) => (
                 <div className="mb-1" key={index}>

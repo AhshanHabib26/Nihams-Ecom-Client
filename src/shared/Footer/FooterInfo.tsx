@@ -6,7 +6,7 @@ import React from "react";
 const FooterInfo = () => {
   const getYear = new Date().getFullYear();
   return (
-    <div  className=" bg-orange-600 p-3 text-white">
+    <div  className=" bg-slate-700 p-3 text-white">
       <Container>
         <div className="flex items-start lg:items-center justify-center gap-1">
           <Copyright size={16} className="mt-1 lg:mt-0" />

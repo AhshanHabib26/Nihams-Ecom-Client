@@ -63,9 +63,14 @@ const MidNav = () => {
           />
           <Heart size={25} />
 
-          <button onClick={handleOpenCart}>
-            <ShoppingCart size={25} />
-          </button>
+          <div className="relative">
+            <button onClick={handleOpenCart}>
+              <ShoppingCart size={25} />
+            </button>
+            <div className="absolute top-[-4px] right-[-5px] bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+              <p>4</p>
+            </div>
+          </div>
 
           {trackUserInfo?.userId ? (
             <LogOut
