@@ -10,7 +10,7 @@ import Subscribe from "@/components/client/Subscribe";
 
 export default function Home() {
   return (
-    <div className="mb-96">
+    <div>
       <BannerSlide />
       <BannerCard />
       <InfoCard />

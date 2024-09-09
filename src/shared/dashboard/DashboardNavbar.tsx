@@ -236,7 +236,7 @@ const DashboardNavbar = ({ children }: { children: React.ReactNode }) => {
               </DropdownMenuContent>
             </DropdownMenu>
           </header>
-          <div>{children}</div>
+          <div className="p-4">{children}</div>
         </div>
       </div>
     </div>

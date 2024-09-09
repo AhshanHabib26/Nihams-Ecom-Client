@@ -1,3 +1,8 @@
+import { BaseQueryApi } from "@reduxjs/toolkit/query";
+import { ReactNode } from "react";
+
+
+
 export type TProduct = {
   id: string;
   title: string;
@@ -11,8 +16,6 @@ export type TProduct = {
 export type TProductProps = {
   product: TProduct;
 };
-import { BaseQueryApi } from "@reduxjs/toolkit/query";
-import { ReactNode } from "react";
 
 export type TError = {
   data: {
@@ -30,21 +33,7 @@ export type TMeta = {
   totalPage: number;
 };
 
-export type ResponseSuccessType = {
-  data: any;
-  meta?: TMeta;
-};
 
-export type IGenericErrorResponse = {
-  statusCode: number;
-  message: string;
-  errorMessages: IGenericErrorMessage[];
-};
-
-export type IGenericErrorMessage = {
-  path: string | number;
-  message: string;
-};
 
 export type TResponse<T> = {
   data?: T;
