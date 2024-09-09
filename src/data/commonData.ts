@@ -18,6 +18,7 @@ const commonData = [
     price: 89.99,
     image: imgEight,
     category: "Kitchen Appliances",
+    quantity: 2,
   },
   {
     id: "2",
@@ -27,6 +28,7 @@ const commonData = [
     price: 99.99,
     image: imgThree,
     category: "Watches",
+    quantity: 3,
   },
   {
     id: "3",
@@ -37,6 +39,7 @@ const commonData = [
     offerPrice: 129.99,
     image: imgFour,
     category: "Home Appliances",
+    quantity: 4,
   },
   {
     id: "4",
@@ -46,6 +49,7 @@ const commonData = [
     price: 999.99,
     image: imgFive,
     category: "Electronics",
+    quantity: 5,
   },
   {
     id: "5",
@@ -56,6 +60,7 @@ const commonData = [
     offerPrice: 169.99,
     image: imgTwo,
     category: "Electronics",
+    quantity: 2,
   },
   {
     id: "6",
@@ -65,6 +70,7 @@ const commonData = [
     price: 190.49,
     image: imgOne,
     category: "Audio",
+    quantity: 2,
   },
   {
     id: "7",
@@ -75,6 +81,7 @@ const commonData = [
     offerPrice: 219.99,
     image: imgSix,
     category: "Electronics",
+    quantity: 2,
   },
   {
     id: "8",
@@ -84,6 +91,7 @@ const commonData = [
     price: 190,
     image: imgSeven,
     category: "Personal Care",
+    quantity: 2,
   },
   {
     id: "9",
@@ -94,6 +102,7 @@ const commonData = [
     offerPrice: 699.99,
     image: imgNine,
     category: "Fitness",
+    quantity: 2,
   },
   {
     id: "10",
@@ -102,11 +111,10 @@ const commonData = [
       "Let this robot vacuum cleaner do the work for you. With powerful suction and smart navigation, it keeps your floors spotless.",
     price: 1199.99,
     image: imgTen,
-    category: "Home Appliances", 
+    category: "Home Appliances",
+    quantity: 2,
   },
 ];
-
-
 
 export const getCommonData = () => {
   return commonData;

@@ -67,7 +67,7 @@ const MenuCartBtn: React.FC<IMenuCartBtnProps> = ({ open, onClose }) => {
               <Link
                 href="/cart"
                 onClick={handleClose}
-                className="bg-rose-600 px-4 py-3 text-white text-md font-medium rounded hover:bg-rose-500"
+                className="bg-orange-600 px-4 py-3 text-white text-md font-medium rounded hover:bg-orange-500"
               >
                 View Cart
               </Link>

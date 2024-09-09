@@ -61,7 +61,9 @@ const MidNav = () => {
             className="block lg:hidden cursor-pointer"
             onClick={toggleVisibility}
           />
-          <Heart size={25} />
+          <Link href="/wishlist">
+            <Heart size={25} />
+          </Link>
 
           <div className="relative">
             <button onClick={handleOpenCart}>
